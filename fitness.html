@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhabhubali Fitness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            background-color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-right: 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .cta-button {
+            background-color: #8e44ad;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 4rem 0;
+            background-color: #f4f4f4;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: #8e44ad;
+        }
+
+        .programs {
+            padding: 4rem 0;
+            background-color: #333;
+            color: white;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .program-card {
+            background-color: #444;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .program-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .coaches {
+            padding: 4rem 0;
+            background-color: #f4f4f4;
+        }
+
+        .coach-info {
+            display: flex;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .coach-info img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .testimonials {
+            padding: 4rem 0;
+            background-color: #8e44ad;
+            color: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .blog {
+            padding: 4rem 0;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .blog-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1rem;
+        }
+
+        .faq {
+            padding: 4rem 0;
+            background-color: #f4f4f4;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            background-color: #8e44ad;
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            background-color: white;
+            padding: 1rem;
+            display: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .stats, .program-grid, .testimonial-grid, .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Bhabhubali Fitness</div>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#classes">Classes</a></li>
+            <li><a href="#community">Community</a></li>
+        </ul>
+        <a href="#join" class="cta-button">Join Now</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Strength and Endurance</h1>
+            <a href="#join" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item">
+                <h3>2023</h3>
+                <p>Years of experience</p>
+            </div>
+            <div class="stat-item">
+                <h3>5000+</h3>
+                <p>Active members</p>
+            </div>
+            <div class="stat-item">
+                <h3>200</h3>
+                <p>Weekly classes</p>
+            </div>
+            <div class="stat-item">
+                <h3>50</h3>
+                <p>Expert trainers</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="programs">
+        <div class="container">
+            <h2>Our Fitness Programs</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Strength Training">
+                    <h3>Strength Training</h3>
+                    <p>Build muscle and increase strength</p>
+                </div>
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Yoga Classes">
+                    <h3>Yoga Classes</h3>
+                    <p>Improve flexibility and mindfulness</p>
+                </div>
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Nutrition Advice">
+                    <h3>Nutrition Advice</h3>
+                    <p>Personalized diet plans</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="coaches">
+        <div class="container">
+            <h2>Meet Our Expert Coaches</h2>
+            <div class="coach-info">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Coach">
+                <div>
+                    <h3>John Doe</h3>
+                    <p>Certified Personal Trainer with 10+ years of experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Our Community Speaks</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Bhabhubali Fitness changed my life. I've never felt stronger!"</p>
+                    <p>- Jane Smith</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The trainers here are top-notch. They really know their stuff."</p>
+                    <p>- Mike Johnson</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I love the variety of classes. There's always something new to try!"</p>
+                    <p>- Sarah Lee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog">
+        <div class="container">
+            <h2>Fitness Insights</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog post">
+                    <div class="blog-content">
+                        <h3>5 Essential Tips for Beginners at the Gym</h3>
+                        <p>Starting your fitness journey can be intimidating. Here are some tips to help you get started...</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog post">
+                    <div class="blog-content">
+                        <h3>The Importance of Nutrition in Your Fitness Journey</h3>
+                        <p>Proper nutrition is key to achieving your fitness goals. Learn how to fuel your body for success...</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog post">
+                    <div class="blog-content">
+                        <h3>The Benefits of Strength Training for All Ages</h3>
+                        <p>Strength training isn't just for bodybuilders. Discover how it can benefit everyone, regardless of age...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2>FAQs</h2>
+            <div class="faq-item">
+                <div class="faq-question">What types of fitness programs do you offer?</div>
+                <div class="faq-answer">We offer a wide range of programs including strength training, cardio, yoga, and more.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How can I sign up for a membership?</div>
+                <div class="faq-answer">You can sign up online or visit our facility to speak with a membership advisor.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you provide nutrition advice?</div>
+                <div class="faq-answer">Yes, we have certified nutritionists who can provide personalized diet plans.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Bhabhubali Fitness. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+            } else {
+                nav.style.backgroundColor = '#fff';
+            }
+        });
+    </script>
+</body>
+</html>
